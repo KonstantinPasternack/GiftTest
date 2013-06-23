@@ -33,7 +33,7 @@
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<beans:property name="url"
-			value="jdbc:mysql://mysql-GiftBox.jelastic.servint.net/mysql " />
+			value="jdbc:mysql://mysql-GiftBox.jelastic.servint.net/test " />
 		<beans:property name="username" value="root" />
 		<beans:property name="password" value="oCx8jkFZ73" />
 	</beans:bean>
