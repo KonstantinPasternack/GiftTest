@@ -4,3 +4,5 @@ localhost:8080/
 	/z.B. GeschenkRessource
 
 --> localhost:8080/Service/rest/geschenk
+
+http://giftbox.jelastic.servint.net/home
