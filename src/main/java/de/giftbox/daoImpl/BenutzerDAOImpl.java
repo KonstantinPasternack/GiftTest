@@ -31,7 +31,7 @@ public class BenutzerDAOImpl implements BenutzerDAO {
 		// hibernateTemplate.saveOrUpdate(benutzer);
 	}
 
-	// Methode, die einen Benutzer über eine ID zurückliefert
+	// Methode, die einen Benutzer ueber eine ID zurueckliefert
 	@Transactional
 	public Benutzer getBenutzerById(Integer id) {
 		log.debug("Getting Benutzer with ID: " + id);
@@ -44,7 +44,7 @@ public class BenutzerDAOImpl implements BenutzerDAO {
 		return b.get(0);
 	}
 
-	// Methode, die eine Liste von allen Benutzer zurückliefert
+	// Methode, die eine Liste von allen Benutzer zurueckliefert
 	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Benutzer> listBenutzer() {
@@ -55,7 +55,7 @@ public class BenutzerDAOImpl implements BenutzerDAO {
 		//TODO Methode umschreiben
 	}
 
-	// Methode, die einen Benutzer über einen Usernamen zurückliefert
+	// Methode, die einen Benutzer ueber einen Usernamen zurueckliefert
 	@Transactional
 	public Benutzer findBenutzerByUsername(String username) {
 		Session session = sessionFactory.getCurrentSession();

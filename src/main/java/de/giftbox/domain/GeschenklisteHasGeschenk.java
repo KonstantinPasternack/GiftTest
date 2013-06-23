@@ -38,7 +38,7 @@ public class GeschenklisteHasGeschenk implements java.io.Serializable {
 	}
 
 	/*
-	 * hier nichts verändern
+	 * hier nichts veraendern
 	 * wurde von Hibernate generiert und hat keine Auswirkungen auf die DB
 	 */
 	@EmbeddedId
