@@ -14,6 +14,11 @@
 			<id>JBoss repository</id>
 			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
 		</repository>
+		<repository>
+			<id>java.net</id>
+			<name>java.net</name>
+			<url>http://download.java.net/maven/2/</url>
+		</repository>
 	</repositories>
 
 	<!-- Shared version number properties -->
