@@ -50,7 +50,7 @@ public class MySQL {
 	}
 
 	/*
-	 * Die Funktion Close() schlieﬂt das Query um den Speicher wieder frei zu
+	 * Die Funktion Close() schliesst das Query um den Speicher wieder frei zu
 	 * geben
 	 */
 
