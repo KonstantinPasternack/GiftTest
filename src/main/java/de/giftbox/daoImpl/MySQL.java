@@ -71,8 +71,8 @@
 //
 //	/*
 //	 * Connect registriert den JDBC Treiber und versucht eine Verbindung
-//	 * herzustellen. Sollte dies nicht möglich sein, wird eine Exception
-//	 * ausgelöst
+//	 * herzustellen. Sollte dies nicht moeglich sein, wird eine Exception
+//	 * ausgeloest
 //	 */
 //
 //	/**
@@ -94,7 +94,7 @@
 //	}
 //
 //	/*
-//	 * frägt ein einfaches Query ab, welches "1" zurück liefert, falls man
+//	 * fragt ein einfaches Query ab, welches "1" zurueck liefert, falls man
 //	 * verbunden ist
 //	 */
 //
@@ -102,7 +102,7 @@
 //	 * @param query
 //	 * @return ResultSet
 //	 * 
-//	 * Query, die ein ResultSet zurück gibt
+//	 * Query, die ein ResultSet zurueck gibt
 //	 */
 //	public ResultSet ReturnQuery(String query) {
 //		try {
@@ -115,7 +115,7 @@
 //		}
 //	}
 //
-//	/* Sendet ein Query und erwartet eine Rückgabe in Form eines ResultSet */
+//	/* Sendet ein Query und erwartet eine Rueckgabe in Form eines ResultSet */
 //
 //	/**
 //	 * @param query
@@ -131,6 +131,6 @@
 //			return false;
 //		}
 //	}
-//	/* Führt das query aus, erwartet aber keine Rückantwort des Servers. */
+//	/* Fuehrt das query aus, erwartet aber keine Rueckantwort des Servers. */
 //
 //}
