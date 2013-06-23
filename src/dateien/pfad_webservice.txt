@@ -1,0 +1,6 @@
+localhost:8080/
+	pom.xml 	--> <build> 	---> <final-name>...</final-name> 
+	/web.xml	--> <servlet-mapping> ---> <urlpattern>...</urlpattern>
+	/z.B. GeschenkRessource
+
+--> localhost:8080/Service/rest/geschenk

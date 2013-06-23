@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="giftbox" match-name="benutzer"/>
+  <table-filter match-catalog="giftbox" match-name="benutzer_has_geschenkliste"/>
+  <table-filter match-catalog="giftbox" match-name="bewertungen"/>
+  <table-filter match-catalog="giftbox" match-name="geschenk"/>
+  <table-filter match-catalog="giftbox" match-name="geschenkliste"/>
+  <table-filter match-catalog="giftbox" match-name="geschenkliste_has_geschenk"/>
+</hibernate-reverse-engineering>
