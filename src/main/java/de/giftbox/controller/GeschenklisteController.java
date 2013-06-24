@@ -52,7 +52,7 @@ public class GeschenklisteController {
 		this.geschenklisteDao = geschenklisteDao;
 	}
 
-	public void setJsonStringToMap(JSONStringToMap jsonStringToMap) {
+	public void setJSONStringToMap(JSONStringToMap jsonStringToMap) {
 		this.jsonStringToMap = jsonStringToMap;
 	}
 	

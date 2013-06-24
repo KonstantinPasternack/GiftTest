@@ -21,15 +21,15 @@ public class Bewertungen implements java.io.Serializable {
 
 	private static final long serialVersionUID = -3980207929435754611L;
 	
-	private Integer id_Bewertungen;
-	private Integer geschenk;
-	private Integer benutzer;
-	private Double bewertung;
+	private Integer idBewertungen;
+	private Geschenk geschenk;
+	private Benutzer benutzer;
+	private String bewertung;
 
 	public Bewertungen() {
 	}
 
-	public Bewertungen(Integer geschenk, Integer benutzer, Double bewertung) {
+	public Bewertungen(Geschenk geschenk, Benutzer benutzer, String bewertung) {
 		this.geschenk = geschenk;
 		this.benutzer = benutzer;
 		this.bewertung = bewertung;
@@ -39,39 +39,39 @@ public class Bewertungen implements java.io.Serializable {
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id_Bewertungen", unique = true, nullable = false)
 	public Integer getIdBewertungen() {
-		return this.id_Bewertungen;
+		return this.idBewertungen;
 	}
 
 	public void setIdBewertungen(Integer idBewertungen) {
-		this.id_Bewertungen = idBewertungen;
+		this.idBewertungen = idBewertungen;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "geschenk_fk", nullable = false)
-	public Integer getGeschenk() {
+	public Geschenk getGeschenk() {
 		return this.geschenk;
 	}
 
-	public void setGeschenk(Integer geschenk) {
+	public void setGeschenk(Geschenk geschenk) {
 		this.geschenk = geschenk;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "benutzer_fk", nullable = false)
-	public Integer getBenutzer() {
+	public Benutzer getBenutzer() {
 		return this.benutzer;
 	}
 
-	public void setBenutzer(Integer benutzer) {
+	public void setBenutzer(Benutzer benutzer) {
 		this.benutzer = benutzer;
 	}
 
 	@Column(name = "bewertung", nullable = false, length = 1)
-	public Double getBewertung() {
+	public String getBewertung() {
 		return this.bewertung;
 	}
 
-	public void setBewertung(Double bewertung) {
+	public void setBewertung(String bewertung) {
 		this.bewertung = bewertung;
 	}
 
