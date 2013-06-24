@@ -63,22 +63,5 @@ public class FriendDAOImpl implements FriendDAO {
 		List<Benutzer> listb = query.list();
 		return listb;
 
-		// Criteria c = session.createCriteria(Friend.class, "f");
-		// c.createAlias("f.meetings", "m"); // inner join by default
-		// c.setProjection( Projections.distinct( Projections.projectionList()
-		// .add( Projections.property("e.employeeId"), "employeeId")
-		// .add( Projections.property("m.meetingId"), "meetingId")
-		// .add( Projections.property("e.firstname"), "firstname")));
 	}
-
-	// SELECT b. *
-	// FROM benutzer b
-	// JOIN friend f ON b.id_Benutzer = f.benutzerFreund_fk
-	// WHERE f.benutzer_fk =1
-	//
-
-//	SELECT DISTINCT b
-//	FROM Benutzer b
-//	JOIN b.lieferungen l
-//	WHERE l.liefernr = '20081008-02‚
 }
