@@ -57,6 +57,7 @@
 				</beans:value>
 				<beans:value>de.giftbox.domain.GeschenklisteHasGeschenkId
 				</beans:value>
+				<beans:value>de.giftbox.domain.BenutzerFreunde</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
