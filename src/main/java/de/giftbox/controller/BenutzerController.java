@@ -36,26 +36,15 @@ public class BenutzerController {
 		return listBenutzer;
 	}
 
-//	@RequestMapping(value = "id/{id}", method = RequestMethod.GET)
-//	public @ResponseBody
-//	Benutzer findBenutzerById(@PathVariable(value = "id") Integer id) {
-//		log.debug("Find Benutzer by ID " + id + "!");
-//		Benutzer benutzer = new Benutzer();
-//		benutzer = benutzerDao.findBenutzerById(id);
-//		// log.debug("Test: " + benutzer.getIdBenutzer().toString());
-//		return benutzer;
-//	}
-
-	@RequestMapping(value = "username/{username}", method = RequestMethod.GET)
-	public @ResponseBody
-	String findBenutzerByUsername(
-			@PathVariable(value = "name") String username) {
-		log.debug("Find Benutzer by Name " + username + "!");
-		Benutzer benutzer = new Benutzer();
-		benutzer = benutzerDao.findBenutzerByUsername(username);
-		
-		return new Gson().toJson(benutzer, Benutzer.class);
-	}
+	// @RequestMapping(value = "id/{id}", method = RequestMethod.GET)
+	// public @ResponseBody
+	// Benutzer findBenutzerById(@PathVariable(value = "id") Integer id) {
+	// log.debug("Find Benutzer by ID " + id + "!");
+	// Benutzer benutzer = new Benutzer();
+	// benutzer = benutzerDao.findBenutzerById(id);
+	// // log.debug("Test: " + benutzer.getIdBenutzer().toString());
+	// return benutzer;
+	// }
 
 	@RequestMapping(value = "new", method = RequestMethod.POST)
 	public @ResponseBody
@@ -104,10 +93,22 @@ public class BenutzerController {
 		return json;
 	}
 
+	@RequestMapping(value = "username/{username}", method = RequestMethod.GET)
+	public @ResponseBody
+	String findBenutzerByUsername(@PathVariable(value = "name") String username) {
+
+		Benutzer b = benutzerDao.findBenutzerByUsername(username);
+
+		Gson gson = new Gson();
+		String json = gson.toJson(b, Benutzer.class);
+
+		return json;
+	}
+
 	public void setBenutzerDAO(BenutzerDAO benutzerDao) {
 		this.benutzerDao = benutzerDao;
 	}
-	
+
 	public void setJSONStringToMap(JSONStringToMap jsonStringToMap) {
 		this.jsonStringToMap = jsonStringToMap;
 	}

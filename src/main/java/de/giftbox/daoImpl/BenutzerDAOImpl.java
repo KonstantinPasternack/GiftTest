@@ -20,7 +20,7 @@ public class BenutzerDAOImpl implements BenutzerDAO {
 
 	private static final Logger log = LoggerFactory
 			.getLogger(BenutzerDAOImpl.class);
-	
+
 	@Autowired
 	SessionFactory sessionFactory;
 
@@ -35,11 +35,23 @@ public class BenutzerDAOImpl implements BenutzerDAO {
 	@Transactional
 	public Benutzer getBenutzerById(Integer id) {
 		log.debug("Getting Benutzer with ID: " + id);
-		
+
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
 		List<Benutzer> b = session.createCriteria(Benutzer.class)
 				.add(Restrictions.eq("id_Benutzer", id)).list();
+
+		return b.get(0);
+	}
+
+	// Methode, die einen Benutzer ueber einen Usernamen zurueckliefert
+	@Transactional
+	public Benutzer findBenutzerByUsername(String username) {
+		Session session = sessionFactory.getCurrentSession();
+		//
+		@SuppressWarnings("unchecked")
+		List<Benutzer> b = session.createCriteria(Benutzer.class)
+				.add(Restrictions.eq("username", username)).list();
 
 		return b.get(0);
 	}
@@ -52,19 +64,7 @@ public class BenutzerDAOImpl implements BenutzerDAO {
 		Criteria criteria = session.createCriteria(Benutzer.class);
 		// criteria.add(Restrictions.eq("name", "blabla"));
 		return criteria.list();
-		//TODO Methode umschreiben
-	}
-
-	// Methode, die einen Benutzer ueber einen Usernamen zurueckliefert
-	@Transactional
-	public Benutzer findBenutzerByUsername(String username) {
-		Session session = sessionFactory.getCurrentSession();
-//		Benutzer b = (Benutzer) sessionFactory.getCurrentSession().get(
-//				Benutzer.class, username);
-		Criteria criteria = session.createCriteria(Benutzer.class);
-		 criteria.add(Restrictions.eq("username", username));
-
-		return (Benutzer) criteria.list().get(0);
+		// TODO Methode umschreiben
 	}
 
 }
