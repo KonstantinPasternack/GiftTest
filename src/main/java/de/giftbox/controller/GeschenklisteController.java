@@ -31,7 +31,7 @@ public class GeschenklisteController {
 		return listGeschenkliste;
 	}
 
-	public void setGeschenklisteDao(GeschenklisteDAO geschenklisteDao) {
+	public void setGeschenklisteDAO(GeschenklisteDAO geschenklisteDao) {
 		this.geschenklisteDao = geschenklisteDao;
 	}
 
