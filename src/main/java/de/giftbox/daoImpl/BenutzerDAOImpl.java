@@ -47,6 +47,9 @@ public class BenutzerDAOImpl implements BenutzerDAO {
 		else {
 			Benutzer ben = new Benutzer();
 			ben.setId_Benutzer(-1);
+			ben.setEmail("");
+			ben.setUsername("");
+			ben.setKommentar("");
 			return ben;
 		}
 	}
@@ -66,6 +69,9 @@ public class BenutzerDAOImpl implements BenutzerDAO {
 		else {
 			Benutzer ben = new Benutzer();
 			ben.setId_Benutzer(-1);
+			ben.setEmail("");
+			ben.setUsername("");
+			ben.setKommentar("");
 			return ben;
 		}
 	}
