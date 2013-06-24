@@ -2,6 +2,7 @@ package de.giftbox.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,8 @@ import de.giftbox.dao.BewertungenDAO;
 import de.giftbox.domain.Bewertungen;
 import de.giftbox.helper.JSONStringToMap;
 
+@Controller
+@RequestMapping("/bewertung/*")
 public class BewertungenController {
 
 	BewertungenDAO bewertungenDao;
@@ -32,12 +35,6 @@ public class BewertungenController {
 		b = gson.fromJson(json, Bewertungen.class);
 
 		log.debug(b.toString());
-		// Map<String, Object> jsonMap = jsonStringToMap.convertToMap(json);
-		//
-		// b.setUsername(jsonMap.get("username").toString());
-		// b.setPasswort(jsonMap.get("passwort").toString());
-		// b.setKommentar(jsonMap.get("kommentar").toString());
-		// b.setEmail(jsonMap.get("email").toString());
 
 		log.info("testing Post \"Bewertung\":" + b.toString() + " to DB");
 		Boolean geklappt = false;

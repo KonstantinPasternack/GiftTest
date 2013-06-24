@@ -46,13 +46,6 @@ public class GeschenkController {
 		
 		log.debug(geschenk.toString());
 		
-//		Map<String, Object> jsonMap = jsonStringToMap.convertToMap(json);
-//		
-//		geschenk.setBezeichnung(jsonMap.get("Bezeichnung").toString());
-//		geschenk.setPreis(Double.parseDouble(jsonMap.get("Preis").toString()));
-//		geschenk.setOrt(jsonMap.get("Ort").toString());
-//		geschenk.setLink(jsonMap.get("Link").toString());
-
 		log.info("testing Post \"Geschenk\":" + geschenk.toString() + " to DB");
 		Integer lastAdded = 0;
 		try {
