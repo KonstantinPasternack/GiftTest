@@ -17,13 +17,13 @@ public class Friend implements java.io.Serializable {
 	private static final long serialVersionUID = -3980207929435754611L;
 
 	private Integer id_Friend;
-	private Benutzer benutzer;
-	private Benutzer benutzerFriend;
+	private Integer benutzer;
+	private Integer benutzerFriend;
 
 	public Friend() {
 	}
 
-	public Friend(Benutzer benutzer, Benutzer benutzerFriend) {
+	public Friend(Integer benutzer, Integer benutzerFriend) {
 		this.benutzer = benutzer;
 		this.benutzerFriend = benutzerFriend;
 	}
@@ -42,22 +42,22 @@ public class Friend implements java.io.Serializable {
 //	@ManyToOne(fetch = FetchType.LAZY)
 //	@JoinColumn(name = "benutzer_fk", nullable = false)
 	@Column(name = "benutzer_fk", nullable = true)
-	public Benutzer getBenutzer() {
+	public Integer getBenutzer() {
 		return this.benutzer;
 	}
 
-	public void setBenutzer(Benutzer benutzer) {
+	public void setBenutzer(Integer benutzer) {
 		this.benutzer = benutzer;
 	}
 
 //	@ManyToOne(fetch = FetchType.LAZY)
 //	@JoinColumn(name = "benutzerFreund_fk", nullable = false)
 	@Column(name = "benutzerFreund_fk")
-	public Benutzer getBenutzerFreund() {
+	public Integer getBenutzerFreund() {
 		return this.benutzerFriend;
 	}
 
-	public void setBenutzerFreund(Benutzer benutzerFriend) {
+	public void setBenutzerFreund(Integer benutzerFriend) {
 		this.benutzerFriend = benutzerFriend;
 	}
 
