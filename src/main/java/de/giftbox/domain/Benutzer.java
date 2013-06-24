@@ -4,12 +4,15 @@ package de.giftbox.domain;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -29,7 +32,7 @@ public class Benutzer implements java.io.Serializable {
 //	private Set<Geschenkliste> geschenklisten = new HashSet<Geschenkliste>(0);
 //	private Set<GeschenklisteHasGeschenk> geschenklisteHasGeschenk = new HashSet<GeschenklisteHasGeschenk>(
 //			0);
-//	private Set<Bewertungen> bewertungen = new HashSet<Bewertungen>(0);
+	private Set<Bewertungen> bewertungen = new HashSet<Bewertungen>(0);
 
 	public Benutzer() {
 	}
@@ -48,7 +51,7 @@ public class Benutzer implements java.io.Serializable {
 		this.email = email;
 //		this.geschenklisten = geschenklisten;
 //		this.geschenklisteHasGeschenk = geschenklisteHasGeschenk;
-//		this.bewertungen = bewertungen;
+		this.bewertungen = bewertungen;
 	}
 
 	@Id
@@ -178,14 +181,14 @@ public class Benutzer implements java.io.Serializable {
 //		this.geschenklisteHasGeschenk = geschenklisteHasGeschenk;
 //	}
 //
-//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "benutzer")
-//	public Set<Bewertungen> getBewertungen() {
-//		return this.bewertungen;
-//	}
-//
-//	public void setBewertungen(Set<Bewertungen> bewertungen) {
-//		this.bewertungen = bewertungen;
-//	}
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "benutzer")
+	public Set<Bewertungen> getBewertungen() {
+		return this.bewertungen;
+	}
+
+	public void setBewertungen(Set<Bewertungen> bewertungen) {
+		this.bewertungen = bewertungen;
+	}
 	
 	
 
