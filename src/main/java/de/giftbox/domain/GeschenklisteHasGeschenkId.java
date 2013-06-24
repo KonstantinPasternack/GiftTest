@@ -80,4 +80,14 @@ public class GeschenklisteHasGeschenkId implements java.io.Serializable {
 		return result;
 	}
 
+	@Override
+	public String toString() {
+		return "{geschenklisteIdGeschenkliste:"
+				+ geschenklisteIdGeschenkliste + ", geschenklisteIdGeschenk:"
+				+ geschenklisteIdGeschenk + ", geschenklisteIdBenutzer:"
+				+ geschenklisteIdBenutzer + "}";
+	}
+	
+	
+
 }

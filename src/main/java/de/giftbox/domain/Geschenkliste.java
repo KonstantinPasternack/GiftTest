@@ -70,6 +70,13 @@ public class Geschenkliste implements java.io.Serializable {
 		this.geschenklisteHasGeschenk = geschenklisteHasGeschenk;
 	}
 
+	@Override
+	public String toString() {
+		return "{idGeschenkliste:" + idGeschenkliste + ", name:"
+				+ name + ", geschenklisteHasGeschenk:"
+				+ geschenklisteHasGeschenk + "}";
+	}
+
 //	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "geschenklisten")
 //	public Set<Benutzer> getBenutzer() {
 //		return this.benutzer;
@@ -79,4 +86,5 @@ public class Geschenkliste implements java.io.Serializable {
 //		this.benutzer = benutzer;
 //	}
 
+	
 }

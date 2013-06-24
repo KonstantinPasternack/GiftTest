@@ -54,7 +54,7 @@ public class GeschenklisteHasGeschenk implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Geschenkliste_idBenutzer", nullable = false, insertable = false, updatable = false)
 	public Benutzer getBenutzer() {
 		return this.benutzer;
@@ -64,7 +64,7 @@ public class GeschenklisteHasGeschenk implements java.io.Serializable {
 		this.benutzer = benutzer;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Geschenkliste_idGeschenkliste", nullable = false, insertable = false, updatable = false)
 	public Geschenkliste getGeschenkliste() {
 		return this.geschenkliste;
@@ -74,7 +74,7 @@ public class GeschenklisteHasGeschenk implements java.io.Serializable {
 		this.geschenkliste = geschenkliste;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Geschenkliste_idGeschenk", nullable = false, insertable = false, updatable = false)
 	public Geschenk getGeschenk() {
 		return this.geschenk;
@@ -83,5 +83,12 @@ public class GeschenklisteHasGeschenk implements java.io.Serializable {
 	public void setGeschenk(Geschenk geschenk) {
 		this.geschenk = geschenk;
 	}
+
+	@Override
+	public String toString() {
+		return "{geschenklisteId:"+ id + "}";
+	}
+	
+	
 
 }
