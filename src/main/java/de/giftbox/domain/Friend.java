@@ -39,8 +39,9 @@ public class Friend implements java.io.Serializable {
 		this.id_Friend = idBenutzerFriend;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "benutzer_fk", nullable = false)
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "benutzer_fk", nullable = false)
+	@Column(name = "benutzer_fk", nullable = true)
 	public Benutzer getBenutzer() {
 		return this.benutzer;
 	}
@@ -49,8 +50,9 @@ public class Friend implements java.io.Serializable {
 		this.benutzer = benutzer;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "benutzerFreund_fk", nullable = false)
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "benutzerFreund_fk", nullable = false)
+	@Column(name = "benutzerFreund_fk")
 	public Benutzer getBenutzerFreund() {
 		return this.benutzerFriend;
 	}
