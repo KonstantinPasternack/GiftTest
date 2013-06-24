@@ -119,7 +119,11 @@
 		<beans:property name="GeschenkDAO" ref="GeschenkDAO"></beans:property>
 		<beans:property name="JSONStringToMap" ref="JSONStringToMap"></beans:property>
 	</beans:bean>
-
+	
+	<beans:bean name="GeschenklisteController" class="de.giftbox.controller.GeschenklisteController">
+		<beans:property name="GeschenklisteDAO" ref="GeschenklisteDAO"></beans:property>
+		<beans:property name="JSONStringToMap" ref="JSONStringToMap"></beans:property>
+	</beans:bean>
 	<beans:bean name="JSONStringToMap" class="de.giftbox.helper.JSONStringToMap"></beans:bean>
 
 </beans:beans>
