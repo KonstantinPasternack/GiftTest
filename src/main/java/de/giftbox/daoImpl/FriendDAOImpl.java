@@ -56,9 +56,10 @@ public class FriendDAOImpl implements FriendDAO {
 	@Transactional
 	public List<Benutzer> findFriendsByBenutzerId(Integer id) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "SELECT b.* FROM benutzer b JOIN friend f ON b.id_Benutzer = f.benutzerFreund_fk WHERE f.benutzer_fk = "
-				+ id;
-		Query query = session.createSQLQuery(sql).addEntity(Benutzer.class);
+		String sql = "SELECT b.* FROM benutzer b JOIN friend f ON b.id_Benutzer = f.benutzerFreund_fk WHERE f.benutzer_fk = :id";
+		
+		Query query = session.createSQLQuery(sql);
+		query.setParameter("id", id);
 		// session.createQuery("SELECT b.* FROM benutzer b JOIN friend f ON b.id_Benutzer = f.benutzerFreund_fk WHERE f.benutzer_fk ="+id);
 
 		@SuppressWarnings("unchecked")
