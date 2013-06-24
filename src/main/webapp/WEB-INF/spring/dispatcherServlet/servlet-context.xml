@@ -85,7 +85,7 @@
 		<!-- <beans:property name="sessionFactory" ref="sessionFactory" /> -->
 	</beans:bean>
 	
-	<beans:bean id="BenutzerFreundDAO" class="de.giftbox.daoImpl.BenutzerFreundeDAOImpl">
+	<beans:bean id="BenutzerFreundeDAO" class="de.giftbox.daoImpl.BenutzerFreundeDAOImpl">
 		<!-- <beans:property name="sessionFactory" ref="sessionFactory" /> -->
 	</beans:bean>
 
