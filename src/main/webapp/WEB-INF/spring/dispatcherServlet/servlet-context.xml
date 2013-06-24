@@ -102,6 +102,7 @@
 
 	<beans:bean name="BenutzerController" class="de.giftbox.controller.BenutzerController">
 		<beans:property name="BenutzerDAO" ref="BenutzerDAO"></beans:property>
+		<beans:property name="JSONStringToMap" ref="JSONStringToMap"></beans:property>
 	</beans:bean>
 
 	<beans:bean name="GeschenkController" class="de.giftbox.controller.GeschenkController">
