@@ -58,11 +58,11 @@ public class Benutzer implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id_Benutzer", unique = true, nullable = false)
-	public Integer getIdBenutzer() {
+	public Integer getId_Benutzer() {
 		return this.idBenutzer;
 	}
 
-	public void setIdBenutzer(Integer idBenutzer) {
+	public void setId_Benutzer(Integer idBenutzer) {
 		this.idBenutzer = idBenutzer;
 	}
 
