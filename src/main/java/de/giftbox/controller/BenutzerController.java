@@ -107,4 +107,8 @@ public class BenutzerController {
 	public void setBenutzerDAO(BenutzerDAO benutzerDao) {
 		this.benutzerDao = benutzerDao;
 	}
+	
+	public void setJSONStringToMap(JSONStringToMap jsonStringToMap) {
+		this.jsonStringToMap = jsonStringToMap;
+	}
 }
