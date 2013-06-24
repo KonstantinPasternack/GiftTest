@@ -110,6 +110,11 @@
 		<beans:property name="JSONStringToMap" ref="JSONStringToMap"></beans:property>
 	</beans:bean>
 	
+	<beans:bean name="BewertungenController" class="de.giftbox.controller.BewertungenController">
+		<beans:property name="BewertungenDAO" ref="BewertungenDAO"></beans:property>
+		<beans:property name="JSONStringToMap" ref="JSONStringToMap"></beans:property>
+	</beans:bean>
+	
 	<beans:bean name="FriendController" class="de.giftbox.controller.FriendController">
 		<beans:property name="FriendDAO" ref="FriendDAO"></beans:property>
 		<beans:property name="JSONStringToMap" ref="JSONStringToMap"></beans:property>

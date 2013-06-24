@@ -9,4 +9,6 @@ public interface BewertungenDAO {
 	public void saveBewertung(Bewertungen bewertungen);
 
 	public List<Bewertungen> listBewertungen();
+	
+	public Bewertungen findBewertungenById(Integer id);
 }
