@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import de.giftbox.dao.GeschenklisteDAO;
 import de.giftbox.domain.Geschenk;
@@ -22,9 +23,6 @@ public class GeschenklisteDAOImpl implements GeschenklisteDAO {
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		//this.hibernateTemplate = new HibernateTemplate(sessionFactory);
-	}
 
 	@Override
 	public void saveGeschenkliste(Geschenkliste geschenkliste) {
@@ -37,6 +35,7 @@ public class GeschenklisteDAOImpl implements GeschenklisteDAO {
 	}
 
 	@Override
+	@Transactional
 	@SuppressWarnings("unchecked")
 	public List<Geschenkliste> listGeschenkliste() {
 		Session session = sessionFactory.getCurrentSession();
