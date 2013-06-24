@@ -21,7 +21,7 @@ import de.giftbox.helper.JSONStringToMap;
 @RequestMapping("/friend/*")
 public class BenutzerFreundeController {
 
-	BenutzerFreundeDAO benutzerFreundDao;
+	BenutzerFreundeDAO benutzerFreundeDao;
 	JSONStringToMap jsonStringToMap;
 
 	private static final Logger log = LoggerFactory
@@ -31,7 +31,7 @@ public class BenutzerFreundeController {
 	private @ResponseBody
 	List<BenutzerFreunde> getAllBenutzerFreunde() {
 		log.debug("get all benutzer!");
-		List<BenutzerFreunde> listBenutzerFreunde = benutzerFreundDao.listBenutzerFreund();
+		List<BenutzerFreunde> listBenutzerFreunde = benutzerFreundeDao.listBenutzerFreund();
 		return listBenutzerFreunde;
 	}
 
@@ -65,7 +65,7 @@ public class BenutzerFreundeController {
 		log.info("testing Post \"BenutzerFreunde\":" + bf.toString() + " to DB");
 		Boolean geklappt = false;
 		try {
-			benutzerFreundDao.saveBenutzerFreund(bf);
+			benutzerFreundeDao.saveBenutzerFreund(bf);
 			geklappt = true;
 			log.info("neuen BenutzerFreund in die DB geschrieben!");
 		} catch (Exception ex) {
@@ -84,7 +84,7 @@ public class BenutzerFreundeController {
 	public @ResponseBody
 	String getBenutzerFreundById(@PathVariable(value = "id") Integer id) {
 
-		BenutzerFreunde bf = benutzerFreundDao.getBenutzerFreundById(id);
+		BenutzerFreunde bf = benutzerFreundeDao.getBenutzerFreundById(id);
 
 		Gson gson = new Gson();
 		String json = gson.toJson(bf, BenutzerFreunde.class);
@@ -96,7 +96,7 @@ public class BenutzerFreundeController {
 	public @ResponseBody
 	String findBenutzerFreundByUsername(@PathVariable(value = "name") String username) {
 
-		BenutzerFreunde bf = benutzerFreundDao.findBenutzerFreundByUsername(username);
+		BenutzerFreunde bf = benutzerFreundeDao.findBenutzerFreundByUsername(username);
 
 		Gson gson = new Gson();
 		String json = gson.toJson(bf, BenutzerFreunde.class);
@@ -104,8 +104,8 @@ public class BenutzerFreundeController {
 		return json;
 	}
 
-	public void setBenutzerFreundDAO(BenutzerFreundeDAO benutzerFreundDao) {
-		this.benutzerFreundDao = benutzerFreundDao;
+	public void setBenutzerFreundeDAO(BenutzerFreundeDAO benutzerFreundeDao) {
+		this.benutzerFreundeDao = benutzerFreundeDao;
 	}
 
 	public void setJSONStringToMap(JSONStringToMap jsonStringToMap) {
