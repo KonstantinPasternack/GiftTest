@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import de.giftbox.dao.FriendDAO;
+import de.giftbox.domain.Benutzer;
 import de.giftbox.domain.Friend;
 import de.giftbox.helper.JSONStringToMap;
 
@@ -101,6 +102,17 @@ public class FriendController {
 		Gson gson = new Gson();
 		String json = gson.toJson(bf, Friend.class);
 
+		return json;
+	}
+	
+	@RequestMapping(value = "friendlist/{id}", method=RequestMethod.GET)
+	public @ResponseBody
+	String findFriendsByBenutzerId(@PathVariable(value="id") Integer id){
+		
+		
+		List<Benutzer>friends = friendDao.findFriendsByBenutzerId(id);
+		Gson gson = new Gson();
+		String json = gson.toJson(friends);
 		return json;
 	}
 
