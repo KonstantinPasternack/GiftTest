@@ -45,13 +45,14 @@ public class GeschenklisteDAOImpl implements GeschenklisteDAO {
 	}
 
 	@Override
+	@Transactional
 	public Geschenkliste getGeschenklisteById(int id) {
 		log.debug("Getting Geschenkliste with ID: " + id);
 		
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
 		List<Geschenkliste> geschenkliste = session.createCriteria(Geschenkliste.class)
-				.add(Restrictions.eq("id_Geschenkliste", id)).list();
+				.add(Restrictions.eq("idGeschenkliste", id)).list();
 
 		return geschenkliste.get(0);
 	}
