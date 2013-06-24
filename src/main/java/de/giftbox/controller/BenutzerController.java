@@ -15,7 +15,6 @@ import com.google.gson.Gson;
 
 import de.giftbox.dao.BenutzerDAO;
 import de.giftbox.domain.Benutzer;
-import de.giftbox.domain.Geschenk;
 import de.giftbox.helper.JSONStringToMap;
 
 @Controller
@@ -95,7 +94,7 @@ public class BenutzerController {
 
 	@RequestMapping(value = "username/{username}", method = RequestMethod.GET)
 	public @ResponseBody
-	String findBenutzerByUsername(@PathVariable(value = "name") String username) {
+	String findBenutzerByUsername(@PathVariable(value = "username") String username) {
 
 		Benutzer b = benutzerDao.findBenutzerByUsername(username);
 

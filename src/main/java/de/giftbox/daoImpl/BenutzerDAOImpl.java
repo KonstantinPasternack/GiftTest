@@ -41,7 +41,17 @@ public class BenutzerDAOImpl implements BenutzerDAO {
 		List<Benutzer> b = session.createCriteria(Benutzer.class)
 				.add(Restrictions.eq("id_Benutzer", id)).list();
 
-		return b.get(0);
+		if (b.size()>0){
+			return b.get(0);
+		}
+		else {
+			Benutzer ben = new Benutzer();
+			ben.setId_Benutzer(-1);
+			ben.setEmail("");
+			ben.setUsername("");
+			ben.setKommentar("");
+			return ben;
+		}
 	}
 
 	// Methode, die einen Benutzer ueber einen Usernamen zurueckliefert
@@ -53,7 +63,17 @@ public class BenutzerDAOImpl implements BenutzerDAO {
 		List<Benutzer> b = session.createCriteria(Benutzer.class)
 				.add(Restrictions.eq("username", username)).list();
 
-		return b.get(0);
+		if (b.size()>0){
+			return b.get(0);
+		}
+		else {
+			Benutzer ben = new Benutzer();
+			ben.setId_Benutzer(-1);
+			ben.setEmail("");
+			ben.setUsername("");
+			ben.setKommentar("");
+			return ben;
+		}
 	}
 
 	// Methode, die eine Liste von allen Benutzer zurueckliefert
