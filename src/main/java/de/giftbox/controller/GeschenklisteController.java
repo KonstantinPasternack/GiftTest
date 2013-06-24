@@ -43,7 +43,7 @@ public class GeschenklisteController {
 		Geschenkliste geschenk = geschenklisteDao.getGeschenklisteById(id);
 		
 		Gson gson = new Gson();
-		String json = gson.toJson(geschenk, Geschenk.class);
+		String json = gson.toJson(geschenk, Geschenkliste.class);
 		
 		return json;
 	}
