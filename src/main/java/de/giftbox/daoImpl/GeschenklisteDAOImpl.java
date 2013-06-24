@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,17 @@ public class GeschenklisteDAOImpl implements GeschenklisteDAO {
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(Geschenkliste.class);
 		return criteria.list();
+	}
+
+	@Override
+	public Geschenkliste getGeschenklisteById(int id) {
+		log.debug("Getting Geschenkliste with ID: " + id);
+		
+		Session session = sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		List<Geschenkliste> geschenkliste = session.createCriteria(Geschenkliste.class)
+				.add(Restrictions.eq("id_Geschenkliste", id)).list();
+
+		return geschenkliste.get(0);
 	}
 }

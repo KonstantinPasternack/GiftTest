@@ -11,4 +11,6 @@ public interface GeschenklisteDAO {
 	public void deleteGeschenkliste(Geschenkliste geschenkliste);
 
 	public List<Geschenkliste> listGeschenkliste();
+	
+	Geschenkliste getGeschenklisteById(int id);
 }
