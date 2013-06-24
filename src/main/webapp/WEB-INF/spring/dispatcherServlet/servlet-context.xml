@@ -57,6 +57,7 @@
 				</beans:value>
 				<beans:value>de.giftbox.domain.GeschenklisteHasGeschenkId
 				</beans:value>
+				<beans:value>de.giftbox.domain.BenutzerFreunde</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
@@ -83,6 +84,10 @@
 	<beans:bean id="BenutzerDAO" class="de.giftbox.daoImpl.BenutzerDAOImpl">
 		<!-- <beans:property name="sessionFactory" ref="sessionFactory" /> -->
 	</beans:bean>
+	
+	<beans:bean id="BenutzerFreundeDAO" class="de.giftbox.daoImpl.BenutzerFreundeDAOImpl">
+		<!-- <beans:property name="sessionFactory" ref="sessionFactory" /> -->
+	</beans:bean>
 
 	<beans:bean id="BewertungenDAO" class="de.giftbox.daoImpl.BewertungenDAOImpl">
 		<!-- <beans:property name="sessionFactory" ref="sessionFactory" /> -->
@@ -102,6 +107,11 @@
 
 	<beans:bean name="BenutzerController" class="de.giftbox.controller.BenutzerController">
 		<beans:property name="BenutzerDAO" ref="BenutzerDAO"></beans:property>
+		<beans:property name="JSONStringToMap" ref="JSONStringToMap"></beans:property>
+	</beans:bean>
+	
+	<beans:bean name="BenutzerFreundeController" class="de.giftbox.controller.BenutzerFreundeController">
+		<beans:property name="BenutzerFreundeDAO" ref="BenutzerFreundeDAO"></beans:property>
 		<beans:property name="JSONStringToMap" ref="JSONStringToMap"></beans:property>
 	</beans:bean>
 
