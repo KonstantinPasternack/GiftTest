@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Friend", catalog = "giftbox")
+@Table(name = "friend", catalog = "giftbox")
 public class Friend implements java.io.Serializable {
 
 	private static final long serialVersionUID = -3980207929435754611L;
@@ -59,6 +59,12 @@ public class Friend implements java.io.Serializable {
 
 	public void setBenutzerFreund(Benutzer benutzerFriend) {
 		this.benutzerFriend = benutzerFriend;
+	}
+
+	@Override
+	public String toString() {
+		return "Friend [id_Friend=" + id_Friend + ", benutzer=" + benutzer
+				+ ", benutzerFriend=" + benutzerFriend + "]";
 	}
 
 }
