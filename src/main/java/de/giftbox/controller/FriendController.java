@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
-import de.giftbox.dao.BenutzerFreundeDAO;
-import de.giftbox.domain.BenutzerFreunde;
+import de.giftbox.dao.FriendDAO;
+import de.giftbox.domain.Friend;
 import de.giftbox.helper.JSONStringToMap;
 
 @Controller
 @RequestMapping("/friend/*")
-public class BenutzerFreundeController {
+public class FriendController {
 
-	BenutzerFreundeDAO benutzerFreundeDao;
+	FriendDAO friendDao;
 	JSONStringToMap jsonStringToMap;
 
 	private static final Logger log = LoggerFactory
@@ -29,9 +29,9 @@ public class BenutzerFreundeController {
 
 	@RequestMapping(value = "all", method = RequestMethod.GET)
 	private @ResponseBody
-	List<BenutzerFreunde> getAllBenutzerFreunde() {
+	List<Friend> getAllBenutzerFreunde() {
 		log.debug("get all benutzer!");
-		List<BenutzerFreunde> listBenutzerFreunde = benutzerFreundeDao.listBenutzerFreund();
+		List<Friend> listBenutzerFreunde = friendDao.listBenutzerFreund();
 		return listBenutzerFreunde;
 	}
 
@@ -48,11 +48,11 @@ public class BenutzerFreundeController {
 	@RequestMapping(value = "new", method = RequestMethod.POST)
 	public @ResponseBody
 	String postBenutzerFreund(@RequestBody String json) {
-		BenutzerFreunde bf= new BenutzerFreunde();
+		Friend bf= new Friend();
 		log.debug(json.toString());
 
 		Gson gson = new Gson();
-		bf = gson.fromJson(json, BenutzerFreunde.class);
+		bf = gson.fromJson(json, Friend.class);
 
 		log.debug(bf.toString());
 		// Map<String, Object> jsonMap = jsonStringToMap.convertToMap(json);
@@ -62,10 +62,10 @@ public class BenutzerFreundeController {
 		// b.setKommentar(jsonMap.get("kommentar").toString());
 		// b.setEmail(jsonMap.get("email").toString());
 
-		log.info("testing Post \"BenutzerFreunde\":" + bf.toString() + " to DB");
+		log.info("testing Post \"Friend\":" + bf.toString() + " to DB");
 		Boolean geklappt = false;
 		try {
-			benutzerFreundeDao.saveBenutzerFreund(bf);
+			friendDao.saveBenutzerFreund(bf);
 			geklappt = true;
 			log.info("neuen BenutzerFreund in die DB geschrieben!");
 		} catch (Exception ex) {
@@ -84,10 +84,10 @@ public class BenutzerFreundeController {
 	public @ResponseBody
 	String getBenutzerFreundById(@PathVariable(value = "id") Integer id) {
 
-		BenutzerFreunde bf = benutzerFreundeDao.getBenutzerFreundById(id);
+		Friend bf = friendDao.getBenutzerFreundById(id);
 
 		Gson gson = new Gson();
-		String json = gson.toJson(bf, BenutzerFreunde.class);
+		String json = gson.toJson(bf, Friend.class);
 
 		return json;
 	}
@@ -96,16 +96,16 @@ public class BenutzerFreundeController {
 	public @ResponseBody
 	String findBenutzerFreundByUsername(@PathVariable(value = "name") String username) {
 
-		BenutzerFreunde bf = benutzerFreundeDao.findBenutzerFreundByUsername(username);
+		Friend bf = friendDao.findBenutzerFreundByUsername(username);
 
 		Gson gson = new Gson();
-		String json = gson.toJson(bf, BenutzerFreunde.class);
+		String json = gson.toJson(bf, Friend.class);
 
 		return json;
 	}
 
-	public void setBenutzerFreundeDAO(BenutzerFreundeDAO benutzerFreundeDao) {
-		this.benutzerFreundeDao = benutzerFreundeDao;
+	public void setFriendDAO(FriendDAO friendDao) {
+		this.friendDao = friendDao;
 	}
 
 	public void setJSONStringToMap(JSONStringToMap jsonStringToMap) {

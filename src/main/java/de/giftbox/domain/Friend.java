@@ -11,32 +11,32 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "benutzerFreunde", catalog = "giftbox")
-public class BenutzerFreunde implements java.io.Serializable {
+@Table(name = "Friend", catalog = "giftbox")
+public class Friend implements java.io.Serializable {
 
 	private static final long serialVersionUID = -3980207929435754611L;
 
-	private Integer id_BenutzerFreunde;
+	private Integer id_Friend;
 	private Benutzer benutzer;
-	private Benutzer benutzerFreund;
+	private Benutzer benutzerFriend;
 
-	public BenutzerFreunde() {
+	public Friend() {
 	}
 
-	public BenutzerFreunde(Benutzer benutzer, Benutzer benutzerFreund) {
+	public Friend(Benutzer benutzer, Benutzer benutzerFriend) {
 		this.benutzer = benutzer;
-		this.benutzerFreund = benutzerFreund;
+		this.benutzerFriend = benutzerFriend;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "id_BenutzerFreunde", unique = true, nullable = false)
-	public Integer getIdBenutzerFreunde() {
-		return this.id_BenutzerFreunde;
+	@Column(name = "id_Friend", unique = true, nullable = false)
+	public Integer getIdBenutzerFriend() {
+		return this.id_Friend;
 	}
 
-	public void setIdBenutzerFreunde(Integer idBenutzerFreunde) {
-		this.id_BenutzerFreunde = idBenutzerFreunde;
+	public void setIdBenutzerFriend(Integer idBenutzerFriend) {
+		this.id_Friend = idBenutzerFriend;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -52,11 +52,11 @@ public class BenutzerFreunde implements java.io.Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "benutzerFreund_fk", nullable = false)
 	public Benutzer getBenutzerFreund() {
-		return this.benutzerFreund;
+		return this.benutzerFriend;
 	}
 
-	public void setBenutzerFreund(Benutzer benutzerFreund) {
-		this.benutzerFreund = benutzerFreund;
+	public void setBenutzerFreund(Benutzer benutzerFriend) {
+		this.benutzerFriend = benutzerFriend;
 	}
 
 }
