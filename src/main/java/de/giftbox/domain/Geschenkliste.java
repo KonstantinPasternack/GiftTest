@@ -61,7 +61,7 @@ public class Geschenkliste implements java.io.Serializable {
 		this.name = name;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "geschenkliste")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "geschenkliste")
 	public Set<GeschenklisteHasGeschenk> getGeschenklisteHasGeschenk() {
 		return this.geschenklisteHasGeschenk;
 	}
