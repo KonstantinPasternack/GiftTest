@@ -48,12 +48,13 @@ public class BenutzerController {
 
 	@RequestMapping(value = "username/{username}", method = RequestMethod.GET)
 	public @ResponseBody
-	Benutzer findBenutzerByUsername(
+	String findBenutzerByUsername(
 			@PathVariable(value = "name") String username) {
 		log.debug("Find Benutzer by Name " + username + "!");
 		Benutzer benutzer = new Benutzer();
 		benutzer = benutzerDao.findBenutzerByUsername(username);
-		return benutzer;
+		
+		return new Gson().toJson(benutzer, Benutzer.class);
 	}
 
 	@RequestMapping(value = "new", method = RequestMethod.POST)
