@@ -68,7 +68,7 @@ public class BewertungenController {
 	}
 	
 	@RequestMapping(value = "get/byuser/{id}", method = RequestMethod.GET)
-	public Map<Integer,Integer> getUnratedBewertungenByUserId(@PathVariable(value = "id") Integer id){
+	public String getUnratedBewertungenByUserId(@PathVariable(value = "id") Integer id){
 		
 		List<Bewertungen> bewertungen = bewertungenDao.findBewertungenByUserId(id);
 		
@@ -80,7 +80,10 @@ public class BewertungenController {
 			}
 		}
 		
-		return unratedGeschenke;
+		Gson gson = new Gson();
+		String json = gson.toJson(unratedGeschenke);
+		
+		return json;
 	}
 	
 	public void setBewertungenDAO(BewertungenDAO bewertungenDao) {
