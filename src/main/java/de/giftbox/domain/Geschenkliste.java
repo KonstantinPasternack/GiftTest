@@ -24,38 +24,38 @@ public class Geschenkliste implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1346437601668258655L;
 
-	private int idGeschenkliste;
+	private Integer id_Geschenkliste;
 	private String name;
 	private Set<GeschenklisteHasGeschenk> geschenklisteHasGeschenk = new HashSet<GeschenklisteHasGeschenk>(
 			0);
-	private Integer benutzer;
+	private Integer benutzer_fk;
 
 	public Geschenkliste() {
 	}
 
-	public Geschenkliste(int idGeschenkliste, String name) {
-		this.idGeschenkliste = idGeschenkliste;
+	public Geschenkliste(Integer idGeschenkliste, String name) {
+		this.id_Geschenkliste = idGeschenkliste;
 		this.name = name;
 	}
 
-	public Geschenkliste(int idGeschenkliste, String name,
+	public Geschenkliste(Integer idGeschenkliste, String name,
 			Set<GeschenklisteHasGeschenk> geschenklisteHasGeschenke,
 			Integer benutzer) {
-		this.idGeschenkliste = idGeschenkliste;
+		this.id_Geschenkliste = idGeschenkliste;
 		this.name = name;
 		this.geschenklisteHasGeschenk = geschenklisteHasGeschenke;
-		this.benutzer = benutzer;
+		this.benutzer_fk = benutzer;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id_Geschenkliste", unique = true, nullable = false)
 	public int getIdGeschenkliste() {
-		return this.idGeschenkliste;
+		return this.id_Geschenkliste;
 	}
 
 	public void setIdGeschenkliste(int idGeschenkliste) {
-		this.idGeschenkliste = idGeschenkliste;
+		this.id_Geschenkliste = idGeschenkliste;
 	}
 
 	@Column(name = "name", nullable = false, length = 45)
@@ -79,19 +79,19 @@ public class Geschenkliste implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "{idGeschenkliste:" + idGeschenkliste + ", name:" + name
+		return "{idGeschenkliste:" + id_Geschenkliste + ", name:" + name
 				+ ", geschenklisteHasGeschenk:" + geschenklisteHasGeschenk
-				+ "benutzer:" + benutzer + "}";
+				+ "benutzer:" + benutzer_fk + "}";
 	}
 
 	// @ManyToMany(fetch = FetchType.LAZY, mappedBy = "geschenklisten")
 	@Column(name="benutzer_fk")
 	public Integer getBenutzer() {
-		return this.benutzer;
+		return this.benutzer_fk;
 	}
 
 	public void setBenutzer(Integer benutzer) {
-		this.benutzer = benutzer;
+		this.benutzer_fk = benutzer;
 	}
 
 }
