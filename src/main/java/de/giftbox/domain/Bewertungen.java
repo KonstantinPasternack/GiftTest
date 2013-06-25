@@ -21,7 +21,7 @@ public class Bewertungen implements java.io.Serializable {
 
 	private static final long serialVersionUID = -3980207929435754611L;
 	
-	private Integer idBewertungen;
+	private Integer id_Bewertung;
 	private Integer geschenk;
 	private Integer benutzer;
 	private String bewertung;
@@ -39,11 +39,11 @@ public class Bewertungen implements java.io.Serializable {
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id_Bewertungen", unique = true, nullable = false)
 	public Integer getIdBewertungen() {
-		return this.idBewertungen;
+		return this.id_Bewertung;
 	}
 
 	public void setIdBewertungen(Integer idBewertungen) {
-		this.idBewertungen = idBewertungen;
+		this.id_Bewertung = idBewertungen;
 	}
 
 //	@ManyToOne(fetch = FetchType.LAZY)
