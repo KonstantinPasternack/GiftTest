@@ -162,7 +162,7 @@ public class Benutzer implements java.io.Serializable {
 		return true;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "benutzer")
+//	@OneToMany(fetch = FetchType.EAGER, mappedBy = "benutzer_fk")
 	// @JoinTable(name = "benutzer_has_geschenkliste", catalog = "giftbox",
 	// joinColumns = { @JoinColumn(name = "id_Benutzer", nullable = false,
 	// updatable = false) }, inverseJoinColumns = { @JoinColumn(name =
