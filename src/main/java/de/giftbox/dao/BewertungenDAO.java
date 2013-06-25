@@ -11,4 +11,6 @@ public interface BewertungenDAO {
 	public List<Bewertungen> listBewertungen();
 	
 	public Bewertungen findBewertungenById(Integer id);
+	
+	public Double findAvgBewertungByGeschenkId(Integer id);
 }
