@@ -81,7 +81,7 @@ public class Geschenkliste implements java.io.Serializable {
 	public String toString() {
 		return "{idGeschenkliste:" + id_Geschenkliste + ", name:" + name
 				+ ", geschenklisteHasGeschenk:" + geschenklisteHasGeschenk
-				+ "benutzer:" + benutzer_fk + "}";
+				+ ", benutzer:" + benutzer_fk + "}";
 	}
 
 	// @ManyToMany(fetch = FetchType.LAZY, mappedBy = "geschenklisten")
