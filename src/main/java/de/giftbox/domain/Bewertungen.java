@@ -24,12 +24,12 @@ public class Bewertungen implements java.io.Serializable {
 	private Integer id_Bewertung;
 	private Integer geschenk;
 	private Integer benutzer;
-	private String bewertung;
+	private Double bewertung;
 
 	public Bewertungen() {
 	}
 
-	public Bewertungen(Integer geschenk, Integer benutzer, String bewertung) {
+	public Bewertungen(Integer geschenk, Integer benutzer, Double bewertung) {
 		this.geschenk = geschenk;
 		this.benutzer = benutzer;
 		this.bewertung = bewertung;
@@ -69,11 +69,11 @@ public class Bewertungen implements java.io.Serializable {
 	}
 
 	@Column(name = "bewertung")
-	public String getBewertung() {
+	public Double getBewertung() {
 		return this.bewertung;
 	}
 
-	public void setBewertung(String bewertung) {
+	public void setBewertung(Double bewertung) {
 		this.bewertung = bewertung;
 	}
 
