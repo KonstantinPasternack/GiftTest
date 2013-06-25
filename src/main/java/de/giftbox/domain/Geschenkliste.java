@@ -50,11 +50,11 @@ public class Geschenkliste implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id_Geschenkliste", unique = true, nullable = false)
-	public int getIdGeschenkliste() {
+	public Integer getIdGeschenkliste() {
 		return this.id_Geschenkliste;
 	}
 
-	public void setIdGeschenkliste(int idGeschenkliste) {
+	public void setIdGeschenkliste(Integer idGeschenkliste) {
 		this.id_Geschenkliste = idGeschenkliste;
 	}
 
