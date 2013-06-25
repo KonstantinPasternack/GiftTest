@@ -1,5 +1,9 @@
 package de.giftbox.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -54,13 +58,29 @@ public class BewertungenController {
 
 	}
 
-	@RequestMapping(value = "get/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "get/bygeschenk/{id}", method = RequestMethod.GET)
 	public @ResponseBody
-	Double getBewertungenById(@PathVariable(value = "id") Integer id) {
+	Double getBewertungenByGeschenkId(@PathVariable(value = "id") Integer id) {
 
 		Double bewertung = bewertungenDao.findAvgBewertungByGeschenkId(id);
 
 		return bewertung;
+	}
+	
+	@RequestMapping(value = "get/byuser/{id}", method = RequestMethod.GET)
+	public Map<Integer,Integer> getUnratedBewertungenByUserId(@PathVariable(value = "id") Integer id){
+		
+		List<Bewertungen> bewertungen = bewertungenDao.findBewertungenByUserId(id);
+		
+		Map<Integer,Integer> unratedGeschenke = new HashMap<Integer,Integer>();
+		
+		for(Bewertungen b : bewertungen){
+			if(b.getBewertung()==0.0){
+				unratedGeschenke.put(b.getBenutzer(), b.getGeschenk());
+			}
+		}
+		
+		return unratedGeschenke;
 	}
 	
 	public void setBewertungenDAO(BewertungenDAO bewertungenDao) {
