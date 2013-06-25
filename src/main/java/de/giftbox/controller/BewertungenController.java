@@ -25,14 +25,14 @@ public class BewertungenController {
 
 	BewertungenDAO bewertungenDao;
 	JSONStringToMap jsonStringToMap;
-	
+
 	private static final Logger log = LoggerFactory
 			.getLogger(MainController.class);
-	
+
 	@RequestMapping(value = "new", method = RequestMethod.POST)
 	public @ResponseBody
 	String postBewertung(@RequestBody String json) {
-		Bewertungen b= new Bewertungen();
+		Bewertungen b = new Bewertungen();
 		log.debug(json.toString());
 
 		Gson gson = new Gson();
@@ -66,26 +66,28 @@ public class BewertungenController {
 
 		return bewertung;
 	}
-	
+
 	@RequestMapping(value = "get/byuser/{id}", method = RequestMethod.GET)
-	public String getUnratedBewertungenByUserId(@PathVariable(value = "id") Integer id){
-		
-		List<Bewertungen> bewertungen = bewertungenDao.findBewertungenByUserId(id);
-		
-		Map<Integer,Integer> unratedGeschenke = new HashMap<Integer,Integer>();
-		
-		for(Bewertungen b : bewertungen){
-			if(b.getBewertung()==0.0){
+	public @ResponseBody
+	String getUnratedBewertungenByUserId(@PathVariable(value = "id") Integer id) {
+
+		List<Bewertungen> bewertungen = bewertungenDao
+				.findBewertungenByUserId(id);
+
+		Map<Integer, Integer> unratedGeschenke = new HashMap<Integer, Integer>();
+
+		for (Bewertungen b : bewertungen) {
+			if (b.getBewertung() == 0.0) {
 				unratedGeschenke.put(b.getBenutzer(), b.getGeschenk());
 			}
 		}
-		
+
 		Gson gson = new Gson();
 		String json = gson.toJson(unratedGeschenke);
-		
+
 		return json;
 	}
-	
+
 	public void setBewertungenDAO(BewertungenDAO bewertungenDao) {
 		this.bewertungenDao = bewertungenDao;
 	}
@@ -93,5 +95,5 @@ public class BewertungenController {
 	public void setJSONStringToMap(JSONStringToMap jsonStringToMap) {
 		this.jsonStringToMap = jsonStringToMap;
 	}
-	
+
 }
