@@ -68,7 +68,7 @@ public class Bewertungen implements java.io.Serializable {
 		this.benutzer = benutzer;
 	}
 
-	@Column(name = "bewertung", nullable = false, length = 1)
+	@Column(name = "bewertung")
 	public String getBewertung() {
 		return this.bewertung;
 	}
