@@ -2,13 +2,16 @@ package de.giftbox.domain;
 
 // Generated 29.05.2013 13:40:32 by Hibernate Tools 4.0.0
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,36 +23,39 @@ import javax.persistence.Table;
 public class Geschenkliste implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1346437601668258655L;
-	
-	private int idGeschenkliste;
+
+	private Integer id_Geschenkliste;
 	private String name;
-	private Set<GeschenklisteHasGeschenk> geschenklisteHasGeschenk = new HashSet<GeschenklisteHasGeschenk>(0);
-	private Benutzer benutzer;
+	private Set<GeschenklisteHasGeschenk> geschenklisteHasGeschenk = new HashSet<GeschenklisteHasGeschenk>(
+			0);
+	private Integer benutzer_fk;
 
 	public Geschenkliste() {
 	}
 
-	public Geschenkliste(int idGeschenkliste, String name) {
-		this.idGeschenkliste = idGeschenkliste;
+	public Geschenkliste(Integer idGeschenkliste, String name) {
+		this.id_Geschenkliste = idGeschenkliste;
 		this.name = name;
 	}
 
-	public Geschenkliste(int idGeschenkliste, String name,
-			Set<GeschenklisteHasGeschenk> geschenklisteHasGeschenke, Benutzer benutzer) {
-		this.idGeschenkliste = idGeschenkliste;
+	public Geschenkliste(Integer idGeschenkliste, String name,
+			Set<GeschenklisteHasGeschenk> geschenklisteHasGeschenke,
+			Integer benutzer) {
+		this.id_Geschenkliste = idGeschenkliste;
 		this.name = name;
 		this.geschenklisteHasGeschenk = geschenklisteHasGeschenke;
-		this.benutzer = benutzer;
+		this.benutzer_fk = benutzer;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id_Geschenkliste", unique = true, nullable = false)
-	public int getIdGeschenkliste() {
-		return this.idGeschenkliste;
+	public Integer getIdGeschenkliste() {
+		return this.id_Geschenkliste;
 	}
 
-	public void setIdGeschenkliste(int idGeschenkliste) {
-		this.idGeschenkliste = idGeschenkliste;
+	public void setIdGeschenkliste(Integer idGeschenkliste) {
+		this.id_Geschenkliste = idGeschenkliste;
 	}
 
 	@Column(name = "name", nullable = false, length = 45)
@@ -66,25 +72,26 @@ public class Geschenkliste implements java.io.Serializable {
 		return this.geschenklisteHasGeschenk;
 	}
 
-	public void setGeschenklisteHasGeschenk(Set<GeschenklisteHasGeschenk> geschenklisteHasGeschenk) {
+	public void setGeschenklisteHasGeschenk(
+			Set<GeschenklisteHasGeschenk> geschenklisteHasGeschenk) {
 		this.geschenklisteHasGeschenk = geschenklisteHasGeschenk;
 	}
 
 	@Override
 	public String toString() {
-		return "{idGeschenkliste:" + idGeschenkliste + ", name:"
-				+ name + ", geschenklisteHasGeschenk:"
-				+ geschenklisteHasGeschenk + "}";
+		return "{idGeschenkliste:" + id_Geschenkliste + ", name:" + name
+				+ ", geschenklisteHasGeschenk:" + geschenklisteHasGeschenk
+				+ ", benutzer:" + benutzer_fk + "}";
 	}
 
-//	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "geschenklisten")
-	public Benutzer getBenutzer() {
-		return this.benutzer;
+	// @ManyToMany(fetch = FetchType.LAZY, mappedBy = "geschenklisten")
+	@Column(name="benutzer_fk")
+	public Integer getBenutzer() {
+		return this.benutzer_fk;
 	}
 
-	public void setBenutzer(Benutzer benutzer) {
-		this.benutzer = benutzer;
+	public void setBenutzer(Integer benutzer) {
+		this.benutzer_fk = benutzer;
 	}
 
-	
 }
