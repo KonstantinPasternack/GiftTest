@@ -79,6 +79,7 @@ public class GeschenklisteController {
 	@RequestMapping(value = "new", method = RequestMethod.POST)
 	public @ResponseBody
 	String postGeschenkliste(@RequestBody String json) {
+		System.out.println("---------------------------------GESCHENKLISTE_CONTROLLER----------------------------");
 		Geschenkliste gl = new Geschenkliste();
 		log.debug(json.toString());
 
