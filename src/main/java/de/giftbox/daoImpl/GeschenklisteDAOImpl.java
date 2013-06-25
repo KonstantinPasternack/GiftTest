@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.giftbox.dao.GeschenklisteDAO;
-import de.giftbox.domain.Benutzer;
 import de.giftbox.domain.Geschenkliste;
 
 public class GeschenklisteDAOImpl implements GeschenklisteDAO {
@@ -61,7 +60,7 @@ public class GeschenklisteDAOImpl implements GeschenklisteDAO {
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "SELECT * FROM `geschenkliste` WHERE benutzer_fk="
 				+ id;
-		Query query = session.createSQLQuery(sql).addEntity(Benutzer.class);
+		Query query = session.createSQLQuery(sql).addEntity(Geschenkliste.class);
 
 		@SuppressWarnings("unchecked")
 		List<Geschenkliste> listb = query.list();
