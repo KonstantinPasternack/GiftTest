@@ -87,7 +87,7 @@ public class GeschenklisteController {
 		gl = gson.fromJson(json, Geschenkliste.class);
 
 		log.debug(gl.toString());
-
+		log.debug(new Gson().toJson(gl));
 		log.info("testing Post \"Geschenliste\":" + gl.toString() + " to DB");
 		Boolean geklappt = false;
 		try {
