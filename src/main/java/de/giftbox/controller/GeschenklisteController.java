@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import de.giftbox.dao.GeschenklisteDAO;
+import de.giftbox.domain.Benutzer;
 import de.giftbox.domain.Geschenk;
 import de.giftbox.domain.Geschenkliste;
 import de.giftbox.domain.GeschenklisteHasGeschenk;
@@ -44,6 +45,8 @@ public class GeschenklisteController {
 				new GeschenklisteAdapter()).create();
 		return gson.toJson(listGeschenkliste);
 	}
+	
+	
 
 	@RequestMapping(value = "get/{id}", method = RequestMethod.GET)
 	public @ResponseBody
@@ -104,6 +107,16 @@ public class GeschenklisteController {
 
 		return geklappt.toString();
 
+	}
+	
+	@RequestMapping(value = "byuser/{id}", method=RequestMethod.GET)
+	public @ResponseBody
+	String findFriendsByBenutzerId(@PathVariable(value="id") Integer id){
+		
+		List<Geschenkliste>gsl = geschenklisteDao.getGeschenklisteByUserId(id);
+		Gson gson = new Gson();
+		String json = gson.toJson(gsl);
+		return json;
 	}
 
 	public void setGeschenklisteDAO(GeschenklisteDAO geschenklisteDao) {

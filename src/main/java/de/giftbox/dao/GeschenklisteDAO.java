@@ -13,4 +13,6 @@ public interface GeschenklisteDAO {
 	public List<Geschenkliste> listGeschenkliste();
 	
 	Geschenkliste getGeschenklisteById(int id);
+
+	public List<Geschenkliste> getGeschenklisteByUserId(Integer id);
 }
