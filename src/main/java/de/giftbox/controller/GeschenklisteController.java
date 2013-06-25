@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -72,6 +73,35 @@ public class GeschenklisteController {
 		Gson gson = gsonBuilder.registerTypeAdapter(Geschenkliste.class,
 				new GeschenkAdapter()).create();
 		return gson.toJson(geschenke);
+
+	}
+	
+	@RequestMapping(value = "new", method = RequestMethod.POST)
+	public @ResponseBody
+	String postGeschenkliste(@RequestBody String json) {
+		Geschenkliste gl = new Geschenkliste();
+		log.debug(json.toString());
+
+		Gson gson = new Gson();
+		gl = gson.fromJson(json, Geschenkliste.class);
+
+		log.debug(gl.toString());
+
+		log.info("testing Post \"Geschenliste\":" + gl.toString() + " to DB");
+		Boolean geklappt = false;
+		try {
+			geschenklisteDao.saveGeschenkliste(gl);
+			geklappt = true;
+			log.info("neue Geschenkliste in die DB geschrieben!");
+		} catch (Exception ex) {
+
+			ex.printStackTrace();
+			geklappt = false;
+			log.error("saveGeschenkliste hat nicht funktioniert");
+
+		}
+
+		return geklappt.toString();
 
 	}
 

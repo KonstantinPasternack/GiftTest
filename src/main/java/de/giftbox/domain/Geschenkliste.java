@@ -24,7 +24,7 @@ public class Geschenkliste implements java.io.Serializable {
 	private int idGeschenkliste;
 	private String name;
 	private Set<GeschenklisteHasGeschenk> geschenklisteHasGeschenk = new HashSet<GeschenklisteHasGeschenk>(0);
-//	private Set<Benutzer> benutzer = new HashSet<Benutzer>(0);
+	private Benutzer benutzer;
 
 	public Geschenkliste() {
 	}
@@ -35,11 +35,11 @@ public class Geschenkliste implements java.io.Serializable {
 	}
 
 	public Geschenkliste(int idGeschenkliste, String name,
-			Set<GeschenklisteHasGeschenk> geschenklisteHasGeschenke) {
+			Set<GeschenklisteHasGeschenk> geschenklisteHasGeschenke, Benutzer benutzer) {
 		this.idGeschenkliste = idGeschenkliste;
 		this.name = name;
 		this.geschenklisteHasGeschenk = geschenklisteHasGeschenke;
-//		this.benutzer = benutzer;
+		this.benutzer = benutzer;
 	}
 
 	@Id
@@ -78,13 +78,13 @@ public class Geschenkliste implements java.io.Serializable {
 	}
 
 //	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "geschenklisten")
-//	public Set<Benutzer> getBenutzer() {
-//		return this.benutzer;
-//	}
-//
-//	public void setBenutzer(Set<Benutzer> benutzer) {
-//		this.benutzer = benutzer;
-//	}
+	public Benutzer getBenutzer() {
+		return this.benutzer;
+	}
+
+	public void setBenutzer(Benutzer benutzer) {
+		this.benutzer = benutzer;
+	}
 
 	
 }

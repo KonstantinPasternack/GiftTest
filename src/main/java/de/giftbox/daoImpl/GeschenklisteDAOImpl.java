@@ -9,11 +9,9 @@ import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.giftbox.dao.GeschenklisteDAO;
-import de.giftbox.domain.Geschenk;
 import de.giftbox.domain.Geschenkliste;
 
 public class GeschenklisteDAOImpl implements GeschenklisteDAO {
@@ -27,7 +25,7 @@ public class GeschenklisteDAOImpl implements GeschenklisteDAO {
 
 	@Override
 	public void saveGeschenkliste(Geschenkliste geschenkliste) {
-		//hibernateTemplate.saveOrUpdate(geschenkliste);
+		sessionFactory.getCurrentSession().saveOrUpdate(geschenkliste);
 	}
 
 	@Override
