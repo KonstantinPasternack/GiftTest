@@ -3,6 +3,7 @@ package de.giftbox.daoImpl;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -49,5 +50,19 @@ public class BewertungenDAOImpl implements BewertungenDAO {
 		List<Bewertungen> bewertungen = criteria.list();
 		
 		return bewertungen.get(0);
+	}
+
+	@Transactional
+	public Double findAvgBewertungByGeschenkId(Integer id) {
+		
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "SELECT avg(bewertung) FROM bewertungen where geschenk_fk = :fk";
+		Query query = session.createSQLQuery(sql);
+		query.setParameter("fk", id);
+		
+		@SuppressWarnings("unchecked")
+		List<Double> results = query.list();
+		
+		return results.get(0);
 	}
 }

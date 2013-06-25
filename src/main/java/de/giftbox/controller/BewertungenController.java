@@ -56,14 +56,11 @@ public class BewertungenController {
 
 	@RequestMapping(value = "get/{id}", method = RequestMethod.GET)
 	public @ResponseBody
-	String getBewertungenById(@PathVariable(value = "id") Integer id) {
+	Double getBewertungenById(@PathVariable(value = "id") Integer id) {
 
-		Bewertungen b = bewertungenDao.findBewertungenById(id);
+		Double bewertung = bewertungenDao.findAvgBewertungByGeschenkId(id);
 
-		Gson gson = new Gson();
-		String json = gson.toJson(b, Bewertungen.class);
-
-		return json;
+		return bewertung;
 	}
 	
 	public void setBewertungenDAO(BewertungenDAO bewertungenDao) {
