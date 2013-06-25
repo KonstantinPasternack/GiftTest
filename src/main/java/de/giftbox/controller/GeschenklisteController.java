@@ -114,9 +114,15 @@ public class GeschenklisteController {
 	String findFriendsByBenutzerId(@PathVariable(value="id") Integer id){
 		
 		List<Geschenkliste>gsl = geschenklisteDao.getGeschenklisteByUserId(id);
-		Gson gson = new Gson();
-		String json = gson.toJson(gsl);
-		return json;
+		
+//		Gson gson = new Gson();
+//		String json = gson.toJson(gsl);
+//		return json;
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		Gson gson = gsonBuilder.registerTypeAdapter(Geschenkliste.class,
+				new GeschenklisteAdapter()).create();
+		return gson.toJson(gsl);
+
 	}
 
 	public void setGeschenklisteDAO(GeschenklisteDAO geschenklisteDao) {
