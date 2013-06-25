@@ -66,7 +66,7 @@ public class BewertungenDAOImpl implements BewertungenDAO {
 		return results.get(0);
 	}
 
-	@Override
+	@Transactional
 	public List<Bewertungen> findBewertungenByUserId(Integer id) {
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(Bewertungen.class).add(Restrictions.eq("benutzer", id));
