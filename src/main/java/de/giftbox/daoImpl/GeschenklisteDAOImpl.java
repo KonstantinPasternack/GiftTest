@@ -22,10 +22,9 @@ public class GeschenklisteDAOImpl implements GeschenklisteDAO {
 	@Autowired
 	SessionFactory sessionFactory;
 	
-
-	@Override
+	@Transactional
 	public void saveGeschenkliste(Geschenkliste geschenkliste) {
-		sessionFactory.getCurrentSession().saveOrUpdate(geschenkliste);
+		sessionFactory.getCurrentSession().save(geschenkliste);
 	}
 
 	@Override
