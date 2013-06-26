@@ -1,7 +1,5 @@
 package de.giftbox.domain;
 
-@Entity
-@Table(name="geschn")
 public class GeschenkInListe {
 
 	
