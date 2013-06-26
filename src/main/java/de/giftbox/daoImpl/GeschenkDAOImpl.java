@@ -83,8 +83,8 @@ public class GeschenkDAOImpl implements GeschenkDAO {
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "INSERT INTO `geschenkliste_has_geschenk`(`Geschenkliste_idBenutzer`, `Geschenkliste_idGeschenk`, `Geschenkliste_idGeschenkliste`) VALUES ("
 				+ geschenk.getBenutzer_id() + ","
-				+ geschenk.getGeschenkliste_id() + ","
-				+ geschenk.getGeschenk_id() + ")";
+				+ geschenk.getGeschenk_id() + ","
+				+ geschenk.getGeschenkliste_id() + ")";
 		Query query = session.createSQLQuery(sql);
 		query.executeUpdate();
 	}
