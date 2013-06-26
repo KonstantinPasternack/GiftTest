@@ -78,7 +78,7 @@ public class GeschenkDAOImpl implements GeschenkDAO {
 		return lastAdded;
 	}
 
-	@Override
+	@Transactional
 	public void saveGeschenkInListe(GeschenkInListe geschenk) {
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "INSERT INTO geschenkliste_has_geschenk VALUES ("
