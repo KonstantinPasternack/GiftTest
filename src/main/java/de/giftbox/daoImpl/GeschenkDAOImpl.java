@@ -86,6 +86,7 @@ public class GeschenkDAOImpl implements GeschenkDAO {
 				+ geschenk.getGeschenkliste_id() + ","
 				+ geschenk.getGeschenk_id() + ")";
 		Query query = session.createSQLQuery(sql);
+		query.executeUpdate();
 	}
 
 }
