@@ -3,6 +3,7 @@ package de.giftbox.dao;
 import java.util.List;
 
 import de.giftbox.domain.Geschenk;
+import de.giftbox.domain.GeschenkInListe;
 
 public interface GeschenkDAO {
 	
@@ -15,5 +16,7 @@ public interface GeschenkDAO {
 	public Geschenk getGeschenkById(Integer id);
 	
 	public Integer getLastAddedGeschenk();
+
+	public void saveGeschenkInListe(GeschenkInListe geschenk);
 
 }

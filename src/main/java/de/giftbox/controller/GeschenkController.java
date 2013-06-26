@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 
 import de.giftbox.dao.GeschenkDAO;
 import de.giftbox.domain.Geschenk;
+import de.giftbox.domain.GeschenkInListe;
 import de.giftbox.helper.JSONStringToMap;
 
 @Controller
@@ -86,6 +87,38 @@ public class GeschenkController {
 		List<Geschenk> listGeschenk = geschenkDao.listGeschenk();
 		return listGeschenk;
 	}
+	
+	@RequestMapping(value = "addToList", method = RequestMethod.POST/*, consumes = "application/json"*/)
+	public @ResponseBody
+	Integer postGeschenkInListe(@RequestBody String json) {
+		GeschenkInListe geschenk = new GeschenkInListe();
+		log.debug(json.toString());
+		
+		Gson gson = new Gson();
+		geschenk = gson.fromJson(json, GeschenkInListe.class);
+		
+		log.debug(geschenk.toString());
+		
+		log.info("testing Post \"Geschenk\":" + geschenk.toString() + " to DB");
+		Integer lastAdded = 0;
+		try {
+			geschenkDao.saveGeschenkInListe(geschenk);
+			
+			log.info("neues Geschenk in die DB geschrieben!");
+			
+			lastAdded = geschenkDao.getLastAddedGeschenk();
+			log.info("Last added Geschenk has ID: " + lastAdded);
+		} catch (Exception ex) {
+
+			ex.printStackTrace();
+			log.error("saveGeschenk hat nicht funktioniert");
+
+		}
+
+		return lastAdded;
+
+	}
+	
 
 	public void setGeschenkDAO(GeschenkDAO geschenkDao) {
 		this.geschenkDao = geschenkDao;

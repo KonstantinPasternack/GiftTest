@@ -3,6 +3,7 @@ package de.giftbox.daoImpl;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
@@ -14,14 +15,16 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.giftbox.dao.GeschenkDAO;
+import de.giftbox.domain.Benutzer;
 import de.giftbox.domain.Geschenk;
+import de.giftbox.domain.GeschenkInListe;
 
 @Repository
 public class GeschenkDAOImpl implements GeschenkDAO {
 
 	private static final Logger log = LoggerFactory
 			.getLogger(GeschenkDAOImpl.class);
-	
+
 	@Autowired
 	SessionFactory sessionFactory;
 
@@ -48,7 +51,7 @@ public class GeschenkDAOImpl implements GeschenkDAO {
 	@Transactional
 	public Geschenk getGeschenkById(Integer id) {
 		log.debug("Getting Geschenk with ID: " + id);
-		
+
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
 		List<Geschenk> geschenke = session.createCriteria(Geschenk.class)
@@ -61,18 +64,28 @@ public class GeschenkDAOImpl implements GeschenkDAO {
 	public Integer getLastAddedGeschenk() {
 
 		log.debug("Getting last added Geschenk");
-		
+
 		Session session = sessionFactory.getCurrentSession();
 
 		@SuppressWarnings("unchecked")
 		List<Geschenk> geschenke = session.createCriteria(Geschenk.class)
 				.addOrder(Order.desc("id_Geschenk")).list();
-		
+
 		Integer lastAdded = geschenke.get(0).getId_Geschenk();
 
 		log.debug("Last added geschenk has ID: " + lastAdded);
-		
+
 		return lastAdded;
+	}
+
+	@Override
+	public void saveGeschenkInListe(GeschenkInListe geschenk) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "INSERT INTO geschenkliste_has_geschenk VALUES ("
+				+ geschenk.getBenutzer_id() + ","
+				+ geschenk.getGeschenkliste_id() + ","
+				+ geschenk.getGeschenk_id() + ")";
+		Query query = session.createSQLQuery(sql);
 	}
 
 }
