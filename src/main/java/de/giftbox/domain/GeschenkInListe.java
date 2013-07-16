@@ -2,6 +2,7 @@ package de.giftbox.domain;
 
 public class GeschenkInListe {
 
+	
 	Integer geschenk_id;
 	Integer geschenkliste_id;
 	Integer benutzer_id;
@@ -67,7 +68,10 @@ public class GeschenkInListe {
 	@Override
 	public String toString() {
 		return "GeschenkInListe [geschenk_id=" + geschenk_id
-				+ ", geschenkliste_id=" + geschenkliste_id + "]";
+				+ ", geschenkliste_id=" + geschenkliste_id + ", benutzer_id="
+				+ benutzer_id + "]";
 	}
+
+
 
 }
